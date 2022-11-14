@@ -1,0 +1,37 @@
+<script>
+const obj={
+    name:'raj',
+    surname:'velpuri',
+    study:[{tenth:'zphs',
+            higher:[{diploma:'sindhura'}]
+        }]}
+
+for(val in obj){            //iterating values from object
+    if(obj[val] instanceof Array){  //if value array
+        // console.log(obj[val])
+        let x=obj[val]   //assigning values to variable
+        for(val1 of x){  // new variable of value 
+            if(val1 instanceof Object){  //new variable is object
+                for(val2 in val1){    //iterating obect 
+                   if(val1[val2] instanceof Array){
+                    let y = val1[val2]
+                    for(val3 of y){
+                        if(val3 instanceof Object){
+                            for(aa in val3){
+                                console.log(`[${aa}:${val3[aa]}]`)
+                            }
+                        }
+                    }
+                   }
+                   else{
+                    console.log( `[${val2}:${val1[val2]}]`)
+                   }
+                }
+            }
+        }
+    }
+    else{
+        console.log(`[${val}:${obj[val]}]`)
+    }
+}
+</script>
